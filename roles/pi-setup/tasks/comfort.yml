@@ -1,0 +1,16 @@
+- name: Install essential packages
+  apt:
+    package:
+      - bash
+      - bash-completion
+      - curl
+      - git
+      - neofetch
+      - net-tools
+      - openssl
+      - tmux
+      - tree
+      - vim
+      - wget
+    cache_valid_time: 43200
+  become: true

@@ -1,0 +1,7 @@
+{
+	"yaml.schemas": {
+		"https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/inventory.json": "file:///home/duriaux/dev/raspberrypi-Ansible/inventory.yml"
+	},
+	"ansible.python.interpreterPath": "/bin/python3",
+	"editor.tabSize": 2
+}

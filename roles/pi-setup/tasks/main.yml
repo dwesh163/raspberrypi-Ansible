@@ -1,0 +1,23 @@
+- name: Manage users
+  import_tasks:
+    file: manage-users.yml
+  tags:
+    - users
+
+- name: SSH access
+  import_tasks:
+    file: ssh-access.yml
+  tags:
+    - ssh
+
+- name: Install Docker
+  import_tasks:
+    file: install-docker.yml
+  tags:
+    - install-docker
+
+- name: Install comfort
+  import_tasks:
+    file: comfort.yml
+  tags:
+    - comfort

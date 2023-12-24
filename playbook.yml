@@ -1,0 +1,7 @@
+- name: Setup PI
+  hosts: all
+  gather_facts: no
+  roles:
+    - name: pi-setup
+  tags:
+    - setup
