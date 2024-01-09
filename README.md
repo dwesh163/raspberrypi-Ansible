@@ -91,9 +91,9 @@ The **playbook** file is used to define what needs to be done when the _./rasber
 
 Explanation of the different elements:
 
--   ##### hosts:
+-   #### hosts:
     The hosts variable is specified in the [`inventory.yml`](#inventory) and corresponds to the tags. It tells **Anisble** which IP to use.
--   ##### roles:
+-   #### roles:
     Roles are used to identify files to be executed.
--   ##### tags:
+-   #### tags:
     tags are widely used in ansible to select specific actions to be executed. This saves time by eliminating repetitive actions. In our case, there's only one tag: **setup**, as only one task is required.
