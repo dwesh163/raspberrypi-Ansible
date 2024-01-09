@@ -16,7 +16,7 @@
 
 - name: Allows sudo with no password
   community.general.sudoers:
-    name: "allows-{{ item.epfl }}-sudo-with-no-password"
+    name: "allows-sudo-with-no-password"
     user: "{{ item.epfl }}"
     commands: ALL
     nopassword: true

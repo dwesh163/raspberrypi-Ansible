@@ -4,12 +4,6 @@
   tags:
     - users
 
-- name: SSH access
-  import_tasks:
-    file: ssh-access.yml
-  tags:
-    - ssh
-
 - name: Install Docker
   import_tasks:
     file: install-docker.yml
