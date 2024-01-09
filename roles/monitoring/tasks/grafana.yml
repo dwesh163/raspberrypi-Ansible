@@ -1,0 +1,31 @@
+- name: Create Folder /srv/grafana if not exist
+  ansible.builtin.file:
+    path: /srv/grafana
+    mode: 0755
+    state: directory
+  become: true
+
+- name: Create grafana configuration files
+  ansible.builtin.copy:
+    dest: /srv/
+    src: grafana
+    mode: 0644
+  become: true
+
+- name: Create Grafana container
+  ansible.builtin.docker_container:
+    name: grafana
+    restart_policy: always
+    image: grafana/grafana
+    networks:
+      - name: monitoring
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - /srv/grafana/provisioning:/etc/grafana/provisioning
+      - /srv/grafana/dashboards:/var/lib/grafana/dashboards
+    env:
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: "Admin"
+    ports:
+      - "3000:3000"
+  become: true

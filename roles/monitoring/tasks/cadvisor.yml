@@ -1,0 +1,16 @@
+- name: Create cAdvisor
+  ansible.builtin.docker_container:
+    name: cadvisor
+    restart_policy: always
+    image: zcube/cadvisor
+    networks:
+      - name: monitoring
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    ports:
+      - "9101:8080"
+  become: true

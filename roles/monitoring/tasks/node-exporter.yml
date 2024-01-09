@@ -1,0 +1,17 @@
+- name: Create NodeExporter
+  ansible.builtin.docker_container:
+    name: node-exporter
+    restart_policy: always
+    image: prom/node-exporter
+    networks:
+      - name: monitoring
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command: >
+      --path.procfs=/host/proc
+      --path.rootfs=/rootfs
+      --path.sysfs=/host/sys
+      --collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)
+  become: true

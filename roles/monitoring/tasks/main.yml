@@ -1,0 +1,28 @@
+- name: Create monitoring docker network
+  docker_network:
+    name: monitoring
+  become: true
+
+- name: Install prometheus
+  import_tasks:
+    file: prometheus.yml
+  tags:
+    - prometheus
+
+- name: Install grafana
+  import_tasks:
+    file: grafana.yml
+  tags:
+    - grafana
+
+- name: Install node-exporter
+  import_tasks:
+    file: node-exporter.yml
+  tags:
+    - node-exporter
+
+- name: Install cadvisor
+  import_tasks:
+    file: cadvisor.yml
+  tags:
+    - cadvisor

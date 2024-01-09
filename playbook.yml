@@ -5,3 +5,11 @@
     - name: pi-setup
   tags:
     - setup
+
+- name: Monitoring
+  hosts: all
+  gather_facts: no
+  roles:
+    - name: monitoring
+  tags:
+    - monitoring
