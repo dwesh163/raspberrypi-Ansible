@@ -73,3 +73,27 @@ ansible-playbook -i inventory.yml playbook.yml "$@"
 
 ```
 
+### Playbook
+
+Also creates the `playbook.yml` file.
+
+The **playbook** file is used to define what needs to be done when the _./rasbersible_ script is launched. In our case, the objective is to configure the PI for simple use:
+
+```yml
+- name: Setup PI
+  hosts: all
+  gather_facts: no
+  roles:
+      - name: pi-setup
+  tags:
+      - setup
+```
+
+Explanation of the different elements:
+
+-   ##### hosts:
+    The hosts variable is specified in the [`inventory.yml`](###inventory) and corresponds to the tags. It tells **Anisble** which IP to use.
+-   ##### roles:
+    Roles are used to identify files to be executed.
+-   ##### tags:
+    tags are widely used in ansible to select specific actions to be executed. This saves time by eliminating repetitive actions. In our case, there's only one tag: **setup**, as only one task is required.
