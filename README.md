@@ -2,6 +2,12 @@
 
 In this readme all the procedure to configure and install base software on a Raspberry Pi with Ansible
 
+---
+
+## Summary
+
+[TOC]
+
 ## Install os
 
 To install the OS on your SD card, use Raspberry Pi Imager : `sudo apt install rpi-imager` or [download it](https://www.raspberrypi.com/software/)
