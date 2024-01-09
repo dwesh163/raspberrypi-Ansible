@@ -2,4 +2,4 @@ all:
   hosts:
     pi013-01:
       ansible_host: mb827ebd563f1.dyn.epfl.ch
-      ansible_user: root
+      ansible_user: ubuntu
