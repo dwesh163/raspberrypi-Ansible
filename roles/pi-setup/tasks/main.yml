@@ -21,3 +21,9 @@
     file: comfort.yml
   tags:
     - comfort
+
+- name: Install Apache
+  import_tasks:
+    file: apache.yml
+  tags:
+    - apache
