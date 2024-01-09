@@ -30,7 +30,7 @@ We'll use Ubuntu Server
 
 ## Setup Ansible
 
-In this section we will create the files needed to configure _Ansible_, noting the [**hosts**](####hosts) which will be used to tell where to perform actions.
+In this section we will create the files needed to configure _Ansible_, noting the [**hosts**](#hosts) which will be used to tell where to perform actions.
 
 ### Rasbersible
 
@@ -92,7 +92,7 @@ The **playbook** file is used to define what needs to be done when the _./rasber
 Explanation of the different elements:
 
 -   ##### hosts:
-    The hosts variable is specified in the [`inventory.yml`](###inventory) and corresponds to the tags. It tells **Anisble** which IP to use.
+    The hosts variable is specified in the [`inventory.yml`](#inventory) and corresponds to the tags. It tells **Anisble** which IP to use.
 -   ##### roles:
     Roles are used to identify files to be executed.
 -   ##### tags:
