@@ -6,7 +6,12 @@ In this readme all the procedure to configure and install base software on a Ras
 
 ## Summary
 
-[TOC]
+-   [Configure a Rasbry Pi with Ansible](#configure-a-rasbry-pi-with-ansible)
+    -   [Summary](#summary)
+    -   [Install os](#install-os)
+    -   [Setup Ansible](#setup-ansible)
+        -   [Rasbersible](#rasbersible)
+        -   [Playbook](#playbook)
 
 ## Install os
 
