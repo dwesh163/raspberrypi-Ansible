@@ -27,3 +27,7 @@ There are many different OS to install on your Raspberry. Here's a small sample:
 -   ...
 
 We'll use Ubuntu Server
+
+## Setup Ansible
+
+In this section we will create the files needed to configure _Ansible_, noting the [**hosts**](####hosts) which will be used to tell where to perform actions.
