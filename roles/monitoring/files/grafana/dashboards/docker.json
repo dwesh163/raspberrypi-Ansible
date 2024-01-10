@@ -26,7 +26,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 19275,
   "graphTooltip": 1,
-  "id": 5,
+  "id": 3,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -319,96 +319,6 @@
         "type": "prometheus",
         "uid": "P1809F7CD0C75ACF3"
       },
-      "description": "Used Swap",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "match": "null",
-                "result": {
-                  "text": "N/A"
-                }
-              },
-              "type": "special"
-            }
-          ],
-          "max": 100,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "rgba(50, 172, 45, 0.97)",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 10
-              },
-              {
-                "color": "rgba(245, 54, 54, 0.9)",
-                "value": 25
-              }
-            ]
-          },
-          "unit": "percent"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 3,
-        "x": 9,
-        "y": 0
-      },
-      "id": 56,
-      "links": [],
-      "options": {
-        "minVizHeight": 200,
-        "minVizWidth": 200,
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "sizing": "auto",
-        "text": {}
-      },
-      "pluginVersion": "10.2.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
-          },
-          "editorMode": "code",
-          "exemplar": true,
-          "expr": "((node_memory_SwapTotal_bytes - node_memory_SwapFree_bytes) / (node_memory_SwapTotal_bytes)) * 100",
-          "interval": "",
-          "intervalFactor": 1,
-          "legendFormat": "",
-          "range": true,
-          "refId": "A",
-          "step": 240
-        }
-      ],
-      "title": "SWAP Used",
-      "type": "gauge"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
-      },
       "description": "Used Root FS",
       "fieldConfig": {
         "defaults": {
@@ -452,7 +362,7 @@
       "gridPos": {
         "h": 6,
         "w": 3,
-        "x": 12,
+        "x": 9,
         "y": 0
       },
       "id": 26,
@@ -546,7 +456,7 @@
       "gridPos": {
         "h": 6,
         "w": 3,
-        "x": 15,
+        "x": 12,
         "y": 0
       },
       "id": 44,
@@ -596,86 +506,6 @@
         "type": "prometheus",
         "uid": "P1809F7CD0C75ACF3"
       },
-      "description": "Total number of CPU cores",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "match": "null",
-                "result": {
-                  "text": "N/A"
-                }
-              },
-              "type": "special"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 2,
-        "x": 18,
-        "y": 0
-      },
-      "id": 68,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "none",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "10.2.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
-          },
-          "editorMode": "code",
-          "expr": "count(count(node_cpu_seconds_total) by (cpu))",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "CPU Cores",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
-      },
       "description": "System uptime",
       "fieldConfig": {
         "defaults": {
@@ -713,8 +543,8 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 20,
+        "w": 5,
+        "x": 15,
         "y": 0
       },
       "hideTimeOverride": true,
@@ -799,9 +629,9 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 2,
-        "x": 18,
-        "y": 3
+        "w": 4,
+        "x": 20,
+        "y": 0
       },
       "id": 72,
       "links": [],
@@ -880,8 +710,8 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 2,
-        "x": 20,
+        "w": 3,
+        "x": 15,
         "y": 3
       },
       "id": 74,
@@ -961,8 +791,8 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 2,
-        "x": 22,
+        "w": 3,
+        "x": 18,
         "y": 3
       },
       "id": 76,
@@ -998,6 +828,86 @@
         }
       ],
       "title": "SWAP Total",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
+      "description": "Total number of CPU cores",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 3
+      },
+      "id": 68,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
+          },
+          "editorMode": "code",
+          "expr": "count(count(node_cpu_seconds_total) by (cpu))",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "CPU Cores",
       "type": "stat"
     },
     {
@@ -1568,7 +1478,7 @@
       "type": "table"
     }
   ],
-  "refresh": "",
+  "refresh": false,
   "schemaVersion": 39,
   "tags": [
     "prometheus",
