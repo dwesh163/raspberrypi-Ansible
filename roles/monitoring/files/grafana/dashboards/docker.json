@@ -26,7 +26,6 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 19275,
   "graphTooltip": 1,
-  "id": 3,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -506,6 +505,151 @@
         "type": "prometheus",
         "uid": "P1809F7CD0C75ACF3"
       },
+      "description": "Total Memory Usage",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 400
+              },
+              {
+                "color": "#EF843C",
+                "value": 500
+              },
+              {
+                "color": "#E24D42",
+                "value": 600
+              }
+            ]
+          },
+          "unit": "Mib"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 15,
+        "y": 0
+      },
+      "id": 89,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
+          },
+          "editorMode": "code",
+          "expr": "sum(container_memory_usage_bytes{image!=\"\"})/1024/1024",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Total Memory Usage",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
+      "description": "Running containers",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 18,
+        "y": 0
+      },
+      "id": 90,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
+          },
+          "editorMode": "code",
+          "expr": "count(container_last_seen{image!=\"\"})",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Running containers",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "description": "System uptime",
       "fieldConfig": {
         "defaults": {
@@ -543,8 +687,8 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 5,
-        "x": 15,
+        "w": 3,
+        "x": 21,
         "y": 0
       },
       "hideTimeOverride": true,
@@ -581,91 +725,6 @@
         }
       ],
       "title": "Uptime",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
-      },
-      "description": "Total RootFS",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 0,
-          "mappings": [
-            {
-              "options": {
-                "match": "null",
-                "result": {
-                  "text": "N/A"
-                }
-              },
-              "type": "special"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "rgba(50, 172, 45, 0.97)",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 70
-              },
-              {
-                "color": "rgba(245, 54, 54, 0.9)",
-                "value": 90
-              }
-            ]
-          },
-          "unit": "bytes"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 20,
-        "y": 0
-      },
-      "id": 72,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "none",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "10.2.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
-          },
-          "editorMode": "code",
-          "expr": "node_filesystem_size_bytes{mountpoint=\"/\",fstype!=\"rootfs\"}",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "RootFS Total",
       "type": "stat"
     },
     {
@@ -754,87 +813,6 @@
         "type": "prometheus",
         "uid": "P1809F7CD0C75ACF3"
       },
-      "description": "Total SWAP",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 0,
-          "mappings": [
-            {
-              "options": {
-                "match": "null",
-                "result": {
-                  "text": "N/A"
-                }
-              },
-              "type": "special"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "bytes"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 18,
-        "y": 3
-      },
-      "id": 76,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "none",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "10.2.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
-          },
-          "editorMode": "code",
-          "expr": "node_memory_SwapTotal_bytes",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "SWAP Total",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
-      },
       "description": "Total number of CPU cores",
       "fieldConfig": {
         "defaults": {
@@ -872,7 +850,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 21,
+        "x": 18,
         "y": 3
       },
       "id": 68,
@@ -908,6 +886,91 @@
         }
       ],
       "title": "CPU Cores",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
+      "description": "Total RootFS",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 70
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 3
+      },
+      "id": 72,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
+          },
+          "editorMode": "code",
+          "expr": "node_filesystem_size_bytes{mountpoint=\"/\",fstype!=\"rootfs\"}",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "RootFS Total",
       "type": "stat"
     },
     {
@@ -1478,7 +1541,7 @@
       "type": "table"
     }
   ],
-  "refresh": false,
+  "refresh": "1m",
   "schemaVersion": 39,
   "tags": [
     "prometheus",
@@ -1489,7 +1552,7 @@
     "list": []
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {
@@ -1520,6 +1583,6 @@
   "timezone": "browser",
   "title": "Docker Monitoring",
   "uid": "Ss3q6hSZk6",
-  "version": 1,
+  "version": 3,
   "weekStart": ""
 }
