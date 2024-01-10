@@ -9,7 +9,9 @@
 - name: Create User
   ansible.builtin.user:
     name: "{{ item.epfl }}"
-    groups: admin
+    groups:
+      - admin
+      - docker
     shell: /bin/bash
   with_items: "{{ users }}"
   become: true
