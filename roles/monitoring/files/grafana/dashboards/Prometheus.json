@@ -16,7 +16,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+          "uid": "P1809F7CD0C75ACF3"
         },
         "enable": true,
         "expr": "sum(changes(prometheus_config_last_reload_success_timestamp_seconds{instance=~\"$instance\"}[10m])) by (instance)",
@@ -31,7 +31,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+          "uid": "P1809F7CD0C75ACF3"
         },
         "enable": true,
         "expr": "count(sum(up{instance=\"$instance\"}) by (instance) < 1)",
@@ -50,15 +50,15 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 3662,
   "graphTooltip": 0,
-  "id": 4,
+  "id": 5,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "collapsed": false,
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
       },
       "gridPos": {
         "h": 1,
@@ -71,8 +71,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "datasource",
-            "uid": "grafana"
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
           },
           "refId": "A"
         }
@@ -83,7 +83,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "description": "Percentage of uptime during the most recent $interval period.  Change the period with the 'interval' dropdown above.",
       "fieldConfig": {
@@ -153,7 +153,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "avg(avg_over_time(up{instance=~\"$instance\",job=~\"$job\"}[$interval]) * 100)",
           "format": "time_series",
@@ -170,7 +170,7 @@
       "columns": [],
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "description": "Servers which are DOWN RIGHT NOW! \nFIX THEM!!",
       "fontSize": "100%",
@@ -238,7 +238,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "up{instance=~\"$instance\",job=~\"$job\"} < 1",
           "format": "table",
@@ -255,7 +255,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "description": "Total number of time series in prometheus",
       "fieldConfig": {
@@ -324,7 +324,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(prometheus_tsdb_head_series{job=~\"$job\",instance=~\"$instance\"})",
           "format": "time_series",
@@ -339,7 +339,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "fieldConfig": {
         "defaults": {
@@ -404,7 +404,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(prometheus_tsdb_head_chunks{job=~\"$job\",instance=~\"$instance\"})",
           "format": "time_series",
@@ -419,8 +419,8 @@
     {
       "collapsed": false,
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
       },
       "gridPos": {
         "h": 1,
@@ -433,8 +433,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "datasource",
-            "uid": "grafana"
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
           },
           "refId": "A"
         }
@@ -445,7 +445,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "description": "The total number of rule group evaluations missed due to slow rule group evaluation.",
       "fieldConfig": {
@@ -514,7 +514,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(sum_over_time(prometheus_evaluator_iterations_missed_total{job=~\"$job\",instance=~\"$instance\"}[$interval]))",
           "format": "time_series",
@@ -529,7 +529,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "description": "The total number of rule group evaluations skipped due to throttled metric storage.",
       "fieldConfig": {
@@ -598,7 +598,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(sum_over_time(prometheus_evaluator_iterations_skipped_total{job=~\"$job\",instance=~\"$instance\"}[$interval]))",
           "format": "time_series",
@@ -613,7 +613,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "description": "Total number of scrapes that hit the sample limit and were rejected.",
       "fieldConfig": {
@@ -682,7 +682,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(sum_over_time(prometheus_target_scrapes_exceeded_sample_limit_total{job=~\"$job\",instance=~\"$instance\"}[$interval]))",
           "format": "time_series",
@@ -697,7 +697,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "description": "Number of times the database failed to reload block data from disk.",
       "fieldConfig": {
@@ -766,7 +766,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(sum_over_time(prometheus_tsdb_reloads_failures_total{job=~\"$job\",instance=~\"$instance\"}[$interval]))",
           "format": "time_series",
@@ -781,7 +781,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "description": "Sum of all skipped scrapes",
       "fieldConfig": {
@@ -850,7 +850,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(sum_over_time(prometheus_target_scrapes_exceeded_sample_limit_total{job=~\"$job\",instance=~\"$instance\"}[$interval])) + \nsum(sum_over_time(prometheus_target_scrapes_sample_duplicate_timestamp_total{job=~\"$job\",instance=~\"$instance\"}[$interval])) + \nsum(sum_over_time(prometheus_target_scrapes_sample_out_of_bounds_total{job=~\"$job\",instance=~\"$instance\"}[$interval])) + \nsum(sum_over_time(prometheus_target_scrapes_sample_out_of_order_total{job=~\"$job\",instance=~\"$instance\"}[$interval])) ",
           "format": "time_series",
@@ -865,8 +865,8 @@
     {
       "collapsed": false,
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
       },
       "gridPos": {
         "h": 1,
@@ -879,8 +879,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "datasource",
-            "uid": "grafana"
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
           },
           "refId": "A"
         }
@@ -895,7 +895,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "description": "All non-zero failures and errors",
       "fill": 1,
@@ -937,7 +937,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(net_conntrack_dialer_conn_failed_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -949,7 +949,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_evaluator_iterations_missed_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -961,7 +961,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_evaluator_iterations_skipped_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -973,7 +973,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_rule_evaluation_failures_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -985,7 +985,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_sd_azure_refresh_failures_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -997,7 +997,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_sd_consul_rpc_failures_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -1009,7 +1009,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_sd_dns_lookup_failures_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -1021,7 +1021,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_sd_ec2_refresh_failures_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -1033,7 +1033,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_sd_gce_refresh_failures_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -1045,7 +1045,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_sd_marathon_refresh_failures_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -1057,7 +1057,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_sd_openstack_refresh_failures_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -1069,7 +1069,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_sd_triton_refresh_failures_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -1081,7 +1081,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_target_scrapes_exceeded_sample_limit_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -1093,7 +1093,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_target_scrapes_sample_duplicate_timestamp_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -1105,7 +1105,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_target_scrapes_sample_out_of_bounds_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -1117,7 +1117,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_target_scrapes_sample_out_of_order_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -1129,7 +1129,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_treecache_zookeeper_failures_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -1141,7 +1141,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_tsdb_compactions_failed_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -1153,7 +1153,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_tsdb_head_series_not_found{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -1165,7 +1165,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(increase(prometheus_tsdb_reloads_failures_total{instance=~\"$instance\"}[5m])) > 0",
           "format": "time_series",
@@ -1210,8 +1210,8 @@
     {
       "collapsed": false,
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
       },
       "gridPos": {
         "h": 1,
@@ -1224,8 +1224,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "datasource",
-            "uid": "grafana"
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
           },
           "refId": "A"
         }
@@ -1240,7 +1240,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1281,7 +1281,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "up{instance=~\"$instance\",job=~\"$job\"}",
           "format": "time_series",
@@ -1332,7 +1332,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1373,7 +1373,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "prometheus_tsdb_head_chunks{job=~\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
@@ -1418,8 +1418,8 @@
     {
       "collapsed": false,
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
       },
       "gridPos": {
         "h": 1,
@@ -1432,8 +1432,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "datasource",
-            "uid": "grafana"
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
           },
           "refId": "A"
         }
@@ -1448,17 +1448,15 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 0,
         "y": 33
       },
-      "hiddenSeries": false,
       "id": 3,
       "legend": {
         "avg": false,
@@ -1473,11 +1471,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
       "percentage": false,
-      "pluginVersion": "10.2.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1489,7 +1483,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "prometheus_tsdb_head_series{job=~\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
@@ -1500,7 +1494,6 @@
         }
       ],
       "thresholds": [],
-      "timeRegions": [],
       "title": "Series Count",
       "tooltip": {
         "shared": true,
@@ -1526,10 +1519,7 @@
           "logBase": 1,
           "show": true
         }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      ]
     },
     {
       "aliasColors": {},
@@ -1538,17 +1528,15 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 12,
         "y": 33
       },
-      "hiddenSeries": false,
       "id": 32,
       "legend": {
         "avg": false,
@@ -1563,11 +1551,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
       "percentage": false,
-      "pluginVersion": "10.2.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1584,7 +1568,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum( increase(prometheus_tsdb_head_series_created_total{instance=~\"$instance\"}[5m]) )",
           "format": "time_series",
@@ -1596,7 +1580,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum( increase(prometheus_tsdb_head_series_removed_total{instance=~\"$instance\"}[5m]) )",
           "format": "time_series",
@@ -1607,7 +1591,6 @@
         }
       ],
       "thresholds": [],
-      "timeRegions": [],
       "title": "Series Created / Removed",
       "tooltip": {
         "shared": true,
@@ -1632,16 +1615,13 @@
           "logBase": 1,
           "show": true
         }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      ]
     },
     {
       "collapsed": false,
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
       },
       "gridPos": {
         "h": 1,
@@ -1654,8 +1634,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "datasource",
-            "uid": "grafana"
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
           },
           "refId": "A"
         }
@@ -1672,18 +1652,16 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "description": "Rate of total number of appended samples",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
         "y": 41
       },
-      "hiddenSeries": false,
       "id": 4,
       "legend": {
         "avg": false,
@@ -1698,11 +1676,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
       "percentage": false,
-      "pluginVersion": "10.2.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1714,7 +1688,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "rate(prometheus_tsdb_head_samples_appended_total{job=~\"$job\",instance=~\"$instance\"}[1m])",
           "format": "time_series",
@@ -1725,7 +1699,6 @@
         }
       ],
       "thresholds": [],
-      "timeRegions": [],
       "title": "Appended Samples per Second",
       "tooltip": {
         "shared": true,
@@ -1751,16 +1724,13 @@
           "logBase": 1,
           "show": true
         }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      ]
     },
     {
       "collapsed": false,
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
       },
       "gridPos": {
         "h": 1,
@@ -1773,8 +1743,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "datasource",
-            "uid": "grafana"
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
           },
           "refId": "A"
         }
@@ -1789,18 +1759,16 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "description": "Total number of syncs that were executed on a scrape pool.",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 0,
         "y": 49
       },
-      "hiddenSeries": false,
       "id": 6,
       "legend": {
         "avg": false,
@@ -1815,11 +1783,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
       "percentage": false,
-      "pluginVersion": "10.2.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1831,7 +1795,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(prometheus_target_scrape_pool_sync_total{job=~\"$job\",instance=~\"$instance\"}) by (scrape_job)",
           "format": "time_series",
@@ -1843,7 +1807,6 @@
         }
       ],
       "thresholds": [],
-      "timeRegions": [],
       "title": "Scrape Sync Total",
       "tooltip": {
         "shared": true,
@@ -1869,10 +1832,7 @@
           "logBase": 1,
           "show": true
         }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      ]
     },
     {
       "aliasColors": {},
@@ -1881,18 +1841,16 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "description": "Actual interval to sync the scrape pool.",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 12,
         "y": 49
       },
-      "hiddenSeries": false,
       "id": 21,
       "legend": {
         "avg": false,
@@ -1907,11 +1865,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
       "percentage": false,
-      "pluginVersion": "10.2.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1923,7 +1877,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(rate(prometheus_target_sync_length_seconds_sum{job=~\"$job\",instance=~\"$instance\"}[2m])) by (scrape_job) * 1000",
           "format": "time_series",
@@ -1934,7 +1888,6 @@
         }
       ],
       "thresholds": [],
-      "timeRegions": [],
       "title": "Target Sync",
       "tooltip": {
         "shared": true,
@@ -1960,16 +1913,13 @@
           "logBase": 1,
           "show": true
         }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      ]
     },
     {
       "collapsed": false,
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
       },
       "gridPos": {
         "h": 1,
@@ -1982,8 +1932,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "datasource",
-            "uid": "grafana"
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
           },
           "refId": "A"
         }
@@ -1998,17 +1948,15 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 0,
         "y": 57
       },
-      "hiddenSeries": false,
       "id": 29,
       "legend": {
         "avg": false,
@@ -2023,11 +1971,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
       "percentage": false,
-      "pluginVersion": "10.2.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2039,7 +1983,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "scrape_duration_seconds{instance=~\"$instance\"}",
           "format": "time_series",
@@ -2050,7 +1994,6 @@
         }
       ],
       "thresholds": [],
-      "timeRegions": [],
       "title": "Scrape Duration",
       "tooltip": {
         "shared": true,
@@ -2075,10 +2018,7 @@
           "logBase": 1,
           "show": true
         }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      ]
     },
     {
       "aliasColors": {},
@@ -2087,18 +2027,16 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "description": "Total number of rejected scrapes",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 12,
         "y": 57
       },
-      "hiddenSeries": false,
       "id": 30,
       "legend": {
         "avg": false,
@@ -2113,11 +2051,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
       "percentage": false,
-      "pluginVersion": "10.2.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2129,7 +2063,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(prometheus_target_scrapes_exceeded_sample_limit_total{job=~\"$job\",instance=~\"$instance\"})",
           "format": "time_series",
@@ -2141,7 +2075,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(prometheus_target_scrapes_sample_duplicate_timestamp_total{job=~\"$job\",instance=~\"$instance\"})",
           "format": "time_series",
@@ -2154,7 +2088,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(prometheus_target_scrapes_sample_out_of_bounds_total{job=~\"$job\",instance=~\"$instance\"})",
           "format": "time_series",
@@ -2167,7 +2101,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(prometheus_target_scrapes_sample_out_of_order_total{job=~\"$job\",instance=~\"$instance\"}) ",
           "format": "time_series",
@@ -2179,7 +2113,6 @@
         }
       ],
       "thresholds": [],
-      "timeRegions": [],
       "title": "Rejected Scrapes",
       "tooltip": {
         "shared": true,
@@ -2206,16 +2139,13 @@
           "logBase": 1,
           "show": true
         }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      ]
     },
     {
       "collapsed": false,
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
       },
       "gridPos": {
         "h": 1,
@@ -2228,8 +2158,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "datasource",
-            "uid": "grafana"
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
           },
           "refId": "A"
         }
@@ -2244,18 +2174,16 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "description": "The duration of rule group evaluations",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 0,
         "y": 65
       },
-      "hiddenSeries": false,
       "id": 10,
       "legend": {
         "avg": false,
@@ -2270,11 +2198,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
       "percentage": false,
-      "pluginVersion": "10.2.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2286,7 +2210,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "1000 * rate(prometheus_evaluator_duration_seconds_sum{job=~\"$job\", instance=~\"$instance\"}[5m]) / rate(prometheus_evaluator_duration_seconds_count{job=~\"$job\", instance=~\"$instance\"}[5m])",
           "format": "time_series",
@@ -2297,7 +2221,6 @@
         }
       ],
       "thresholds": [],
-      "timeRegions": [],
       "title": "Average Rule Evaluation Duration",
       "tooltip": {
         "shared": true,
@@ -2323,10 +2246,7 @@
           "logBase": 1,
           "show": true
         }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      ]
     },
     {
       "aliasColors": {},
@@ -2335,17 +2255,15 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 12,
         "y": 65
       },
-      "hiddenSeries": false,
       "id": 11,
       "legend": {
         "avg": false,
@@ -2360,11 +2278,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
       "percentage": false,
-      "pluginVersion": "10.2.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2376,7 +2290,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(rate(http_request_duration_microseconds_count{job=~\"$job\",instance=~\"$instance\"}[1m])) by (handler) > 0",
           "format": "time_series",
@@ -2387,7 +2301,6 @@
         }
       ],
       "thresholds": [],
-      "timeRegions": [],
       "title": "HTTP Request Duration",
       "tooltip": {
         "shared": true,
@@ -2412,10 +2325,7 @@
           "logBase": 1,
           "show": true
         }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      ]
     },
     {
       "aliasColors": {},
@@ -2424,17 +2334,15 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 0,
         "y": 72
       },
-      "hiddenSeries": false,
       "id": 15,
       "legend": {
         "avg": false,
@@ -2449,11 +2357,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
       "percentage": false,
-      "pluginVersion": "10.2.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2465,7 +2369,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(prometheus_engine_query_duration_seconds_sum{job=~\"$job\",instance=~\"$instance\"}) by (slice)",
           "format": "time_series",
@@ -2476,7 +2380,6 @@
         }
       ],
       "thresholds": [],
-      "timeRegions": [],
       "title": "Prometheus Engine Query Duration Seconds",
       "tooltip": {
         "shared": true,
@@ -2502,10 +2405,7 @@
           "logBase": 1,
           "show": true
         }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      ]
     },
     {
       "aliasColors": {},
@@ -2514,18 +2414,16 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "description": "Rule-group evaluations \n - total\n - missed due to slow rule group evaluation\n - skipped due to throttled metric storage",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 12,
         "y": 72
       },
-      "hiddenSeries": false,
       "id": 31,
       "legend": {
         "avg": false,
@@ -2540,11 +2438,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
       "percentage": false,
-      "pluginVersion": "10.2.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2556,7 +2450,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(rate(prometheus_evaluator_iterations_total{job=~\"$job\", instance=~\"$instance\"}[5m]))",
           "format": "time_series",
@@ -2568,7 +2462,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(rate(prometheus_evaluator_iterations_missed_total{job=~\"$job\", instance=~\"$instance\"}[5m]))",
           "format": "time_series",
@@ -2580,7 +2474,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(rate(prometheus_evaluator_iterations_skipped_total{job=~\"$job\", instance=~\"$instance\"}[5m]))",
           "format": "time_series",
@@ -2591,7 +2485,6 @@
         }
       ],
       "thresholds": [],
-      "timeRegions": [],
       "title": "Rule Evaluator Iterations",
       "tooltip": {
         "shared": true,
@@ -2617,16 +2510,13 @@
           "logBase": 1,
           "show": true
         }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      ]
     },
     {
       "collapsed": false,
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
       },
       "gridPos": {
         "h": 1,
@@ -2639,8 +2529,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "datasource",
-            "uid": "grafana"
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
           },
           "refId": "A"
         }
@@ -2655,17 +2545,15 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
         "y": 80
       },
-      "hiddenSeries": false,
       "id": 22,
       "legend": {
         "avg": false,
@@ -2680,11 +2568,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
       "percentage": false,
-      "pluginVersion": "10.2.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2696,7 +2580,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "rate(prometheus_notifications_sent_total[5m])",
           "format": "time_series",
@@ -2707,7 +2591,6 @@
         }
       ],
       "thresholds": [],
-      "timeRegions": [],
       "title": "Notifications Sent",
       "tooltip": {
         "shared": true,
@@ -2733,16 +2616,13 @@
           "logBase": 1,
           "show": true
         }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      ]
     },
     {
       "collapsed": false,
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
       },
       "gridPos": {
         "h": 1,
@@ -2755,8 +2635,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "datasource",
-            "uid": "grafana"
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
           },
           "refId": "A"
         }
@@ -2771,17 +2651,15 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 0,
         "y": 88
       },
-      "hiddenSeries": false,
       "id": 23,
       "legend": {
         "avg": false,
@@ -2796,11 +2674,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
       "percentage": false,
-      "pluginVersion": "10.2.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2812,7 +2686,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "(time() - prometheus_config_last_reload_success_timestamp_seconds{job=~\"$job\",instance=~\"$instance\"}) / 60",
           "format": "time_series",
@@ -2823,7 +2697,6 @@
         }
       ],
       "thresholds": [],
-      "timeRegions": [],
       "title": "Minutes Since Successful Config Reload",
       "tooltip": {
         "shared": true,
@@ -2849,10 +2722,7 @@
           "logBase": 1,
           "show": true
         }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      ]
     },
     {
       "aliasColors": {},
@@ -2861,17 +2731,15 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 12,
         "y": 88
       },
-      "hiddenSeries": false,
       "id": 24,
       "legend": {
         "avg": false,
@@ -2886,11 +2754,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
       "percentage": false,
-      "pluginVersion": "10.2.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2902,7 +2766,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "prometheus_config_last_reload_successful{job=~\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
@@ -2913,7 +2777,6 @@
         }
       ],
       "thresholds": [],
-      "timeRegions": [],
       "title": "Successful Config Reload",
       "tooltip": {
         "shared": true,
@@ -2941,16 +2804,13 @@
           "logBase": 1,
           "show": true
         }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      ]
     },
     {
       "collapsed": false,
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
       },
       "gridPos": {
         "h": 1,
@@ -2963,8 +2823,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "datasource",
-            "uid": "grafana"
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
           },
           "refId": "A"
         }
@@ -2979,18 +2839,16 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+        "uid": "P1809F7CD0C75ACF3"
       },
       "description": "GC invocation durations",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
         "y": 96
       },
-      "hiddenSeries": false,
       "id": 28,
       "legend": {
         "avg": false,
@@ -3005,11 +2863,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
       "percentage": false,
-      "pluginVersion": "10.2.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -3021,7 +2875,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "expr": "sum(rate(go_gc_duration_seconds_sum{instance=~\"$instance\",job=~\"$job\"}[2m])) by (instance)",
           "format": "time_series",
@@ -3032,7 +2886,6 @@
         }
       ],
       "thresholds": [],
-      "timeRegions": [],
       "title": "GC Rate / 2m",
       "tooltip": {
         "shared": true,
@@ -3056,16 +2909,13 @@
           "logBase": 1,
           "show": true
         }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      ]
     },
     {
       "collapsed": true,
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
       },
       "gridPos": {
         "h": 1,
@@ -3082,7 +2932,7 @@
           "dashes": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "description": "This is probably wrong!  Please help.",
           "fill": 1,
@@ -3123,7 +2973,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_alloc_bytes_total{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3136,7 +2986,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_alloc_bytes{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3149,7 +2999,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_buck_hash_sys_bytes{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3161,7 +3011,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_gc_sys_bytes{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3173,7 +3023,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_heap_alloc_bytes{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3185,7 +3035,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_heap_idle_bytes{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3197,7 +3047,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_heap_inuse_bytes{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3209,7 +3059,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_heap_released_bytes{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3221,7 +3071,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_heap_sys_bytes{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3233,7 +3083,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_mcache_inuse_bytes{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3245,7 +3095,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_mcache_sys_bytes{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3257,7 +3107,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_mspan_inuse_bytes{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3269,7 +3119,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_mspan_sys_bytes{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3281,7 +3131,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_next_gc_bytes{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3293,7 +3143,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_other_sys_bytes{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3305,7 +3155,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_stack_inuse_bytes{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3317,7 +3167,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_stack_sys_bytes{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3329,7 +3179,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(go_memstats_sys_bytes{job=~\"$job\", instance=~\"$instance\"})",
               "format": "time_series",
@@ -3373,7 +3223,7 @@
           "dashes": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "fill": 1,
           "gridPos": {
@@ -3408,7 +3258,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "prometheus_target_interval_length_seconds{instance=~\"$instance\", job=~\"$job\"}",
               "format": "time_series",
@@ -3453,7 +3303,7 @@
           "dashes": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+            "uid": "P1809F7CD0C75ACF3"
           },
           "fill": 1,
           "gridPos": {
@@ -3488,7 +3338,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+                "uid": "P1809F7CD0C75ACF3"
               },
               "expr": "sum(rate(prometheus_target_interval_length_seconds_count{job=~\"$job\",instance=~\"$instance\"}[5m])) by (interval)",
               "format": "time_series",
@@ -3530,8 +3380,8 @@
       "targets": [
         {
           "datasource": {
-            "type": "datasource",
-            "uid": "grafana"
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
           },
           "refId": "A"
         }
@@ -3540,7 +3390,7 @@
       "type": "row"
     }
   ],
-  "refresh": "",
+  "refresh": "30s",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
@@ -3553,7 +3403,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+          "uid": "P1809F7CD0C75ACF3"
         },
         "definition": "",
         "hide": 0,
@@ -3579,7 +3429,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "e48493b3-6db8-40e6-83e3-4f4e1bf023f1"
+          "uid": "P1809F7CD0C75ACF3"
         },
         "definition": "",
         "hide": 0,
@@ -3696,7 +3546,7 @@
   },
   "timezone": "",
   "title": "Prometheus 2.0 Overview",
-  "uid": "ae744c0f-c837-435d-a569-9dcb3ed90959",
-  "version": 2,
+  "uid": "c7b627e7-dfaa-4e2f-9d98-9583c6ac7cf0",
+  "version": 1,
   "weekStart": ""
 }
