@@ -1,14 +1,14 @@
-- name: Create Folder /srv/grafana if not exist
+- name: Create Folder /srv/grafana/data if not exist
   ansible.builtin.file:
-    path: /srv/grafana
-    mode: 0755
+    path: /srv/grafana/data
+    mode: 0777
     state: directory
   become: true
 
-- name: Create grafana configuration files
+- name: Copy configuration file
   ansible.builtin.copy:
-    dest: /srv/
-    src: grafana
+    dest: /srv
+    src: roles/monitoring/files/grafana
     mode: 0644
   become: true
 
@@ -20,7 +20,7 @@
     networks:
       - name: monitoring
     volumes:
-      - grafana-data:/var/lib/grafana
+      - /srv/grafana/data:/var/lib/grafana
       - /srv/grafana/provisioning:/etc/grafana/provisioning
       - /srv/grafana/dashboards:/var/lib/grafana/dashboards
     env:

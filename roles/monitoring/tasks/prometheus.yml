@@ -1,7 +1,7 @@
-- name: Create Folder /srv/prometheus if not exist
+- name: Create Folder /srv/prometheus/data if not exist
   ansible.builtin.file:
-    path: /srv/prometheus
-    mode: 0755
+    path: /srv/prometheus/data
+    mode: 0777
     state: directory
   become: true
 
@@ -21,7 +21,7 @@
       - name: monitoring
     volumes:
       - /srv/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-      - prometheus_main_data:/prometheus
+      - /srv/prometheus/data:/prometheus
     command: >
       --config.file=/etc/prometheus/prometheus.yml
       --storage.tsdb.path=/prometheus
