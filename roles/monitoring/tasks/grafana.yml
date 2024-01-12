@@ -12,6 +12,11 @@
     mode: 0644
   become: true
 
+- name: Stop and remove container Grafana
+  docker_container:
+    name: "grafana"
+    state: absent
+
 - name: Create Grafana container
   ansible.builtin.docker_container:
     name: grafana

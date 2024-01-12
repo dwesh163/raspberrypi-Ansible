@@ -1,3 +1,8 @@
+- name: Stop and remove container Cadvisor
+  docker_container:
+    name: "cadvisor"
+    state: absent
+
 - name: Create cAdvisor
   ansible.builtin.docker_container:
     name: cadvisor

@@ -1,3 +1,8 @@
+- name: Stop and remove container Node-exporter
+  docker_container:
+    name: "node-exporter"
+    state: absent
+
 - name: Create NodeExporter
   ansible.builtin.docker_container:
     name: node-exporter
