@@ -1,0 +1,38 @@
+- name: Create /srv/alertmanager folders if not exist
+  ansible.builtin.file:
+    path: "/srv/alertmanager/{{ item }}"
+    mode: 0777
+    state: directory
+  become: true
+  with_items:
+    - data
+    - config
+
+- name: Create alertmanager configuration file
+  template:
+    dest: /srv/alertmanager/config/alertmanager.yml
+    src: alertmanager.yml
+    mode: 0644
+  become: true
+
+- name: Stop and remove container Alertmanager
+  docker_container:
+    name: "alertmanager"
+    state: absent
+
+- name: Create Alertmanager container
+  docker_container:
+    name: alertmanager
+    restart_policy: always
+    image: prom/alertmanager
+    networks:
+      - name: monitoring
+    volumes:
+      - /srv/alertmanager/data:/data
+      - /srv/alertmanager/config:/config
+    command: >
+      --config.file=/config/alertmanager.yml 
+      --log.level=debug
+      --web.external-url={{ ansible_host }}:3000
+    published_ports: "9093:9093"
+  become: true

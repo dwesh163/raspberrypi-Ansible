@@ -1,0 +1,18 @@
+route:
+  receiver: "telegram"
+  group_by: ["alertname"]
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 4h
+
+  routes:
+    - receiver: "telegram"
+      group_by: ["instance"]
+      continue: true
+      match:
+        sendto: telegram
+
+receivers:
+  - name: "telegram"
+    telegram_configs:
+      - api_url: https://api.telegram.org
