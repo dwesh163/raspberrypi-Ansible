@@ -16,8 +16,14 @@
   tags:
     - comfort
 
-- name: Install Apache
+- name: Install osInfo
   import_tasks:
-    file: apache.yml
+    file: osinfo.yml
   tags:
-    - apache
+    - osinfo
+
+- name: Install nodeServer
+  import_tasks:
+    file: nodeserver.yml
+  tags:
+    - nodeserver

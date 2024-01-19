@@ -1,0 +1,12 @@
+- name: Copy configuration folder
+  ansible.builtin.copy:
+    dest: /srv
+    src: roles/pi-setup/files/osInfo
+    mode: 0644
+  become: true
+
+- name: Run docker-compose
+  community.docker.docker_compose:
+    project_src: "/srv/osInfo"
+    files:
+      - docker-compose.yml
