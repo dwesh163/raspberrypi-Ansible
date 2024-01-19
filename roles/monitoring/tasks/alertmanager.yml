@@ -15,11 +15,6 @@
     mode: 0644
   become: true
 
-- name: Stop and remove container Alertmanager
-  docker_container:
-    name: "alertmanager"
-    state: absent
-
 - name: Create Alertmanager container
   docker_container:
     name: alertmanager
@@ -33,6 +28,5 @@
     command: >
       --config.file=/config/alertmanager.yml 
       --log.level=debug
-      --web.external-url={{ ansible_host }}:3000
     published_ports: "9093:9093"
   become: true

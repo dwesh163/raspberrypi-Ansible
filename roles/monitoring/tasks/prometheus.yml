@@ -18,11 +18,6 @@
     src: prometheus_alerts_rules.yml
     mode: 0777
 
-- name: Stop and remove container Prometheus
-  docker_container:
-    name: "prometheus"
-    state: absent
-
 - name: Create Prometheus container
   ansible.builtin.docker_container:
     name: prometheus
