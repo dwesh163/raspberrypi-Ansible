@@ -16,7 +16,7 @@
   ansible.builtin.docker_container:
     name: grafana
     restart_policy: always
-    image: grafana/grafana
+    image: grafana/grafana:main-ubuntu
     networks:
       - name: monitoring
     volumes:
