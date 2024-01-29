@@ -1,6 +1,3 @@
-rule_files:
-  - "rules/*.yml"
-
 scrape_configs:
   - job_name: prometheus
     scrape_interval: 30s

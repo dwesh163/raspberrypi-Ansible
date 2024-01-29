@@ -6,6 +6,12 @@
     state: present
   become: true
 
+- name: Make sure we have a 'docker' group
+  ansible.builtin.group:
+    name: docker
+    state: present
+  become: true
+
 - name: Create User
   ansible.builtin.user:
     name: "{{ item.epfl }}"
@@ -13,6 +19,15 @@
       - admin
       - docker
     shell: /bin/bash
+  with_items: "{{ users }}"
+  become: true
+
+- name: Allows sudo with no password
+  community.general.sudoers:
+    name: "allows-sudo-with-no-password"
+    user: "{{ item.epfl }}"
+    commands: ALL
+    nopassword: true
   with_items: "{{ users }}"
   become: true
 

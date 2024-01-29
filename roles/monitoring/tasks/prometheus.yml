@@ -1,3 +1,5 @@
+- include_vars: ../../vars/raspberry-pi.yml
+
 - name: Create Folder /srv/prometheus/data if not exist
   ansible.builtin.file:
     path: /srv/prometheus/data
@@ -5,30 +7,43 @@
     state: directory
   become: true
 
-- name: Create prometheus configuration file
-  ansible.builtin.copy:
+- name: Create prometheus configuration file for main Pi
+  ansible.builtin.template:
+    src: prometheus_master.yml
     dest: /srv/prometheus/prometheus.yml
-    src: prometheus_main.yml
     mode: 0644
   become: true
+  when: "main_pi == inventory_hostname"
+  register: _prometheus_config_main
 
-- name: Create prometheus alert configuration file
+- name: Create prometheus configuartion file for all nodes
+  ansible.builtin.copy:
+    src: prometheus_node.yml
+    dest: /srv/prometheus/prometheus.yml
+    mode: 00644
+  become: true
+  when: "main_pi != inventory_hostname"
+  register: _prometheus_config_nodes
+
+- name: Create prometheus alert configuration file for main pi
   copy:
     dest: /srv/prometheus/prometheus_alerts_rules.yml
     src: prometheus_alerts_rules.yml
     mode: 0777
+  when: "main_pi == inventory_hostname"
 
 - name: Create Prometheus container
   ansible.builtin.docker_container:
     name: prometheus
     restart_policy: always
+    recreate: "{{ _prometheus_config_main.changed or _prometheus_config_nodes.changed }}"
     image: prom/prometheus
     networks:
       - name: monitoring
     volumes:
-      - /srv/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-      - /srv/prometheus/prometheus_alerts_rules.yml:/etc/prometheus/rules/prometheus_alerts_rules.yml
       - /srv/prometheus/data:/prometheus
+      - /srv/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - "{{ '/srv/prometheus/prometheus_alerts_rules.yml:/etc/prometheus/rules/prometheus_alerts_rules.yml' if main_pi == inventory_hostname else omit }}"
     command: >
       --config.file=/etc/prometheus/prometheus.yml
       --storage.tsdb.path=/prometheus

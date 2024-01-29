@@ -1,12 +1,13 @@
-- name: Copy configuration folder
-  ansible.builtin.copy:
-    dest: /srv
-    src: roles/pi-setup/files/osInfo
-    mode: 0644
+- name: Clone Git repositories
+  git:
+    repo: "https://github.com/dwesh163/osInfo.git"
+    dest: "/srv/osinfo"
+    force: true
   become: true
 
 - name: Run docker-compose
   community.docker.docker_compose:
-    project_src: "/srv/osInfo"
+    project_src: "/srv/osinfo"
     files:
       - docker-compose.yml
+  become: true

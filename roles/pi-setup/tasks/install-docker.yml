@@ -24,3 +24,9 @@
     state: latest
     update_cache: true
   become: true
+
+- name: Install docker-compose
+  become: true
+  apt:
+    package:
+      - docker-compose

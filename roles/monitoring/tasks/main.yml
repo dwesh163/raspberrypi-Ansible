@@ -1,3 +1,5 @@
+- include_vars: ../../vars/raspberry-pi.yml
+
 - name: Create monitoring docker network
   docker_network:
     name: monitoring
@@ -14,6 +16,7 @@
     file: alertmanager.yml
   tags:
     - alertmanager
+  when: "main_pi == inventory_hostname"
 
 - name: Install grafana
   import_tasks:

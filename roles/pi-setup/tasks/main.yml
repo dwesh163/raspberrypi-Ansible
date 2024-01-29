@@ -15,15 +15,8 @@
     file: comfort.yml
   tags:
     - comfort
-
-- name: Install osInfo
-  import_tasks:
-    file: osinfo.yml
-  tags:
-    - osinfo
-
-- name: Install nodeServer
-  import_tasks:
-    file: nodeserver.yml
-  tags:
-    - nodeserver
+# - name: Install osInfo
+#   import_tasks:
+#     file: osinfo.yml
+#   tags:
+#     - osinfo
