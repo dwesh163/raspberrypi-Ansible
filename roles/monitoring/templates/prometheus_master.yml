@@ -13,16 +13,22 @@ scrape_configs:
     scrape_interval: 30s
     static_configs:
       - targets: ["localhost:9090"]
+        labels:
+          pi_name: "{{ inventory_hostname }}"
 
   - job_name: node-exporter
     scrape_interval: 30s
     static_configs:
       - targets: ["node-exporter:9100"]
+        labels:
+          pi_name: "{{ inventory_hostname }}"
 
   - job_name: cadvisor
     scrape_interval: 30s
     static_configs:
       - targets: ["cadvisor:8080"]
+        labels:
+          pi_name: "{{ inventory_hostname }}"
 
   - job_name: "federate"
     scrape_interval: 30s
@@ -31,14 +37,11 @@ scrape_configs:
     metrics_path: "/federate"
 
     params:
-      "match[]":
-        - '{job="prometheus"}'
-        - '{__name__=~"job:.*"}'
+      match[]:
+        - '{job=~".+"}'
 
     static_configs:
-      - targets:
-          - "localhost:9090"
-          - "{{ hostvars['pi013-01']['pi_ip'] }}:9090"
-          - "{{ hostvars['pi013-02']['pi_ip'] }}:9090"
-          - "{{ hostvars['pi013-03']['pi_ip'] }}:9090"
-          - "{{ hostvars['pi013-04']['pi_ip'] }}:9090"
+      - targets: ["{{ hostvars['pi013-01']['pi_ip'] }}:9090"]
+      - targets: ["{{ hostvars['pi013-02']['pi_ip'] }}:9090"]
+      - targets: ["{{ hostvars['pi013-03']['pi_ip'] }}:9090"]
+      - targets: ["{{ hostvars['pi013-04']['pi_ip'] }}:9090"]
