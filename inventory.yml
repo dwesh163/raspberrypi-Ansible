@@ -1,5 +1,41 @@
 all:
   hosts:
-    pi013-01:
-      ansible_host: mb827ebd563f1.dyn.epfl.ch
+    pi013-00:
+      ansible_host: 10.179.84.216
+      pi_ip: 10.179.84.163
+      pi_mac: "d8:3a:dd:df:ad:c4"
       ansible_user: ubuntu
+      pi_version: 5
+      pi_id: 0
+
+    pi013-01:
+      ansible_host: 10.179.84.131
+      pi_ip: 10.179.84.209
+      pi_mac: "D83ADDDFAEC3"
+      ansible_user: ubuntu
+      pi_version: 5
+      pi_id: 1
+
+    pi013-02:
+      ansible_host: 10.179.84.165
+      pi_ip: 10.179.84.133
+      pi_mac: "d8:3a:dd:df:ad:76"
+      ansible_user: ubuntu
+      pi_version: 5
+      pi_id: 2
+
+    pi013-03:
+      ansible_host: 10.179.84.131
+      pi_ip: 10.179.84.131
+      pi_mac: "D83ADDDFAFA6"
+      ansible_user: ubuntu
+      pi_version: 5
+      pi_id: 3
+
+    # pi013-04:
+    #   ansible_host: 10.179.84.131
+    #   pi_ip: 10.179.84.131
+    #   pi_mac: "D83ADDDFAE42"
+    #   ansible_user: ubuntu
+    #   pi_version: 5
+    #   pi_id: 4
