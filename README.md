@@ -1,12 +1,12 @@
-# Configure a Rasbry Pi with [Ansible](https://www.ansible.com/)
+# Configure a Raspberry Pi with [Ansible](https://www.ansible.com/)
 
-In this readme all the procedure to configure and install base software on a Raspberry Pi with Ansible
+In this readme all the procedure to configure and install base software on a raspberry Pi with Ansible
 
 ---
 
 ## Summary
 
--   [Configure a Rasbry Pi with Ansible](#configure-a-rasbry-pi-with-ansible)
+-   [Configure a raspberry Pi with Ansible](#configure-a-raspberry-pi-with-ansible)
     -   [Summary](#summary)
     -   [Install os](#install-os)
     -   [Setup Ansible](#setup-ansible)
@@ -33,72 +33,35 @@ There are many different OS to install on your Raspberry. Here's a small sample:
 
 We'll use Ubuntu Server
 
-## Setup Ansible
+## How the script works
 
-In this section we will create the files needed to configure _Ansible_, noting the [**hosts**](#hosts) which will be used to tell where to perform actions.
+The script is separated into two distinct roles: **monitoring** and **pi-setup**.
 
-### Rasbersible
+-   **pi-setup** will install essential packages such as _bash_, _git_, _curl_, _etc_.
+-   **monitoring** will display various system and network information in a web page.
 
-In a new folder, create the file: `rasbersible`.
-it will be used to launch ansible and should look like this:
+### Pi-setup
 
-```bash
+The pi-setup role is divided into 3 configuration files _.yml_ + _main.yml_.
 
-#!/bin/bash
+-   **confort.yml :** will install all essential packages with the `sudo apt install <package>` method.
+-   **install-docker :** will install, as its name suggests, Docker and Docker-compose.
+-   manage-users :\*\*\*\* will create the users present in the `pi-setup-vars.yml` file and configure SSH keys from GitHub.
 
-set -e
-cd "$(cd "$(dirname "$0")"; pwd)"
+### Monitoring
 
-help () {
-   fatal <<HELP_MSG
-Usage:
+Monitoring is divided into three parts.
 
-   ./rasbersible XXX
+-   Grafana** will display all collected data on a web page. Like all other parts, Grafana runs in a Docker container on port **:9000\*\*.
 
- $0 [ -t sometag ] [ ... ]
-HELP_MSG
-}
+-   Prometheus** is the Docker container that will condense all the information recorded by various containers such as _Node Exporter_, _Cadvisor_, and offer it to Grafana, thanks in particular to metrics. Metrics are all available information, often in the form: **<exporter initial><metric name>**. It is these metrics that will be proposed to Grafana via the API accessible on port **:9000\*\*. Prometheus also takes care of storing all data. It will only save the last 2 weeks; this variable can be modified in the parameters.
 
-ensure_suitcase () {
-   if ! test -f ansible-deps-cache/.versions 2>/dev/null; then
-       curl https://raw.githubusercontent.com/epfl-si/ansible.suitcase/master/install.sh | \
-           SUITCASE_DIR=$PWD/ansible-deps-cache \
-           SUITCASE_ANSIBLE_VERSION=8.3.0 \
-           bash -x
-   fi
-   . ansible-deps-cache/lib.sh
-   ensure_ansible_runtime
-}
+-   The **Exporter** Docker containers will each collect their own data and send it to Prometheus.
 
-ensure_suitcase
-[ "$1" == "--help" ] && help
+In addition to the **Grafana** and **Prometheus** containers, we need configurations, which is why there are configuration JSON files.
 
-ansible-playbook -i inventory.yml playbook.yml "$@"
+-   The **prometheus_main.yml** will be used to indicate the exporters' ports, as well as their name and _scrape_interval_, which is the time interval for fetching data.
 
+-   **Dashboard** dashboards are JSON files that indicate exactly where all data blocks will be, as well as their graphic format, tables, etc.
 
-```
-
-### Playbook
-
-Also creates the `playbook.yml` file.
-
-The **playbook** file is used to define what needs to be done when the _./rasbersible_ script is launched. In our case, the objective is to configure the PI for simple use:
-
-```yml
-- name: Setup PI
-  hosts: all
-  gather_facts: no
-  roles:
-      - name: pi-setup
-  tags:
-      - setup
-```
-
-Explanation of the different elements:
-
--   #### hosts:
-    The hosts variable is specified in the [`inventory.yml`](#inventory) and corresponds to the tags. It tells **Anisble** which IP to use.
--   #### roles:
-    Roles are used to identify files to be executed.
--   #### tags:
-    tags are widely used in ansible to select specific actions to be executed. This saves time by eliminating repetitive actions. In our case, there's only one tag: **setup**, as only one task is required.
+-   **Provisioning** these are the files that indicate Grafana's configuration, such as which port to find Prometheus at and how to preload the dashboards.
