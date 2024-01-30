@@ -3,13 +3,19 @@ scrape_configs:
     scrape_interval: 30s
     static_configs:
       - targets: ["localhost:9090"]
+        labels:
+          pi_name: "{{ inventory_hostname }}"
 
   - job_name: node-exporter
     scrape_interval: 30s
     static_configs:
       - targets: ["node-exporter:9100"]
+        labels:
+          pi_name: "{{ inventory_hostname }}"
 
   - job_name: cadvisor
     scrape_interval: 30s
     static_configs:
       - targets: ["cadvisor:8080"]
+        labels:
+          pi_name: "{{ inventory_hostname }}"
