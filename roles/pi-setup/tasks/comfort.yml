@@ -12,9 +12,6 @@
       - tree
       - vim
       - wget
+      - nmap
     cache_valid_time: 43200
   become: true
-# - name: Docker autocomplete
-#   shell: curl https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/bash/docker -o /etc/bash_completion.d/docker.sh
-#   become: true
-
