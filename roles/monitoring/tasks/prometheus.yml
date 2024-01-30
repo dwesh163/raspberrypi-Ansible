@@ -17,7 +17,7 @@
   register: _prometheus_config_main
 
 - name: Create prometheus configuartion file for all nodes
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: prometheus_node.yml
     dest: /srv/prometheus/prometheus.yml
     mode: 00644
