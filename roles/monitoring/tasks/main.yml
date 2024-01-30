@@ -23,6 +23,7 @@
     file: grafana.yml
   tags:
     - grafana
+  when: "main_pi == inventory_hostname"
 
 - name: Install node-exporter
   import_tasks:
