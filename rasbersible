@@ -7,24 +7,48 @@ help () {
     fatal <<HELP_MSG
 Usage:
 
-    ./rasbersible XXX
+  ./rasbersible XXX
+  ./rasbersible -m raw all -a "hostname"
 
   $0 [ -t sometag ] [ ... ]
 HELP_MSG
 }
 
 ensure_suitcase () {
-    if ! test -f ansible-deps-cache/.versions 2>/dev/null; then
-        curl https://raw.githubusercontent.com/epfl-si/ansible.suitcase/master/install.sh | \
-            SUITCASE_DIR=$PWD/ansible-deps-cache \
-            SUITCASE_ANSIBLE_VERSION=8.3.0 \
-            bash -x
-    fi
-    . ansible-deps-cache/lib.sh
-    ensure_ansible_runtime
+  if ! test -f ansible-deps-cache/.versions 2>/dev/null; then
+    curl https://raw.githubusercontent.com/epfl-si/ansible.suitcase/master/install.sh | \
+      SUITCASE_DIR=$PWD/ansible-deps-cache \
+      SUITCASE_ANSIBLE_VERSION=8.3.0 \
+      bash -x
+  fi
+  . ansible-deps-cache/lib.sh
+  ensure_ansible_runtime
 }
 
 ensure_suitcase
 [ "$1" == "--help" ] && help
 
-ansible-playbook -i inventory.yml playbook.yml "$@"
+mode=ansible-playbook
+
+declare -a ansible_args
+mode=ansible-playbook
+inventory_mode="test"
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    -m) mode=ansible
+      ansible_args+=("-m")
+      shift ;;
+    *)
+      ansible_args+=("$1")
+      shift ;;
+    esac
+done
+
+case "$mode" in
+  ansible-playbook)
+    ansible-playbook -i inventory.yml playbook.yml "${ansible_args[@]}" \
+  ;;
+  ansible)
+    ansible -i inventory.yml "${ansible_args[@]}"
+  ;;
+esac
